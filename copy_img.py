@@ -2,7 +2,7 @@ import os
 import datetime
 import time
 from tqdm import tqdm
-from tqdm._tqdm import trange
+#from tqdm._tqdm import trange
 from pathlib import Path
 import PIL
 from PIL import Image
@@ -10,8 +10,10 @@ from PIL.ExifTags import TAGS
 
 import exifread
 
-source = 'D:/Pictures/Jpeg2'
-target = 'N:/bakphoto'
+#source = 'F:/DCIM'
+source = 'F:/PRIVATE/AVCHD/BDMV/STREAM'
+source2 = 'F:/DCIM'
+target = 'D:/Pictures'
 
 try:
     O_BINARY = os.O_BINARY
@@ -102,7 +104,7 @@ def build_dup_dict(dir_path, pattern='*'):
             if not os.path.exists(filepath):
                 os.makedirs(filepath)
             if not os.path.exists(filedest):
-                if fsize > 50:
+                if fsize > 5000:
                     print("文件过大 转换格式保存: {} new:{}".format(file, filedest))
                     try:
                         img.save(filedest)
@@ -118,7 +120,9 @@ def build_dup_dict(dir_path, pattern='*'):
 def main():
     print("字典：{}".format(TAGS))
     build_dup_dict(source)
-    print("finish :{}".format(TimeStampToTime(time.time())))
+    print("finish 1:{}".format(TimeStampToTime(time.time())))
+    build_dup_dict(source2)
+    print("finish 2:{}".format(TimeStampToTime(time.time())))
 
 
 if __name__ == '__main__':
