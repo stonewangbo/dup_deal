@@ -11,8 +11,9 @@ from PIL.ExifTags import TAGS
 import exifread
 
 #source = 'F:/DCIM'
-source = 'F:/PRIVATE/AVCHD/BDMV/STREAM'
-source2 = 'F:/DCIM'
+source = 'G:/PRIVATE/AVCHD/BDMV/STREAM'
+source2 = 'G:/DCIM'
+source3 = 'G:/PRIVATE/M4ROOT/CLIP'
 target = 'D:/Pictures'
 
 try:
@@ -123,6 +124,8 @@ def main():
     print("finish 1:{}".format(TimeStampToTime(time.time())))
     build_dup_dict(source2)
     print("finish 2:{}".format(TimeStampToTime(time.time())))
+    build_dup_dict(source3)
+    print("finish 3:{}".format(TimeStampToTime(time.time())))
 
 
 if __name__ == '__main__':
